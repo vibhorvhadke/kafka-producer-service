@@ -1,0 +1,7 @@
+for ($i = 1; $i -le 21; $i++) {
+     Invoke-RestMethod -Uri "http://localhost:8080/api/users" `
+         -Method Post `
+         -ContentType "application/json" `
+         -Body (@{ name = "User$i"; email = "user$i@example.com" } | ConvertTo-Json)
+     Start-Sleep -Milliseconds 300
+}
